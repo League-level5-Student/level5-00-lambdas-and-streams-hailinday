@@ -13,13 +13,44 @@ public class LambdaMethods {
 		}, "repeat");
 		
 		//2. Call the printCustonMessage method using a lambda so that the String prints backwards.
-		
+		printCustomMessage((s) -> {
+			for(int i = s.length()-1; i >= 0; i--) {
+				System.out.print(s.charAt(i));
+			}
+			System.out.println();
+		},"backwards");
 		//3. Call the printCustonMessage method using a lambda so that the String prints with a mix between upper an lower case characters.
-		
+		printCustomMessage((s) -> {
+			for(int i = 0; i<s.length(); i++) {
+				if (i%2 == 0) {
+					String cap = s.charAt(i) + "";
+					System.out.print(cap.toUpperCase());
+				} else {
+					System.out.print(s.charAt(i));
+				}
+			}
+			System.out.println();
+		}, "Upper Downer");
 		//4. Call the printCustonMessage method using a lambda so that the String prints with a period in between each character.
-		
+		printCustomMessage((s) -> {
+			String period = "";
+			for(int i = 0; i < s.length(); i++) {
+				period += s.substring(i,i+1) + ".";
+			}
+			System.out.println(period);
+		},"Between");
 		//5. Call the printCustonMessage method using a lambda so that the String prints without any vowels.
-	
+		printCustomMessage((s) -> {
+			String period = "";
+			for(int i = 0; i < s.length(); i++) {
+				if (s.substring(i,i+1).equalsIgnoreCase("a") || s.substring(i,i+1).equalsIgnoreCase("e") || s.substring(i,i+1).equalsIgnoreCase("i") || s.substring(i,i+1).equalsIgnoreCase("o") || s.substring(i,i+1).equalsIgnoreCase("u")) {
+				
+				} else {
+					period += s.substring(i,i+1);
+				}
+			}
+			System.out.println(period);
+		},"Vowaeioul");
 	}
 	
 	public static void printCustomMessage(SpecialPrinter sp, String value) {
